@@ -93,7 +93,7 @@ To demonstrate why data leakage is misleading in practice, a controlled experime
 | **Realistic Baseline** | 51 | `0.8922` | `0.6379` | `0.1815` | `0.2826` | `109` | `866` |
 | **Baseline + duration leakage** *(INVALID)* | 52 | `0.9012` | `0.6401` | `0.3563` | `0.4578` | `212` | `681` |
 
-Including `duration` artificially inflates F1-Score by **+62.0%** and nearly doubles recall. However, because call duration is known **only during or after** the phone call, this model is **completely invalid for a pre-call prediction system**. It serves as a reminder that:
+Including `duration` artificially inflates F1-Score by **+62.0%** and nearly doubles recall. However, duration is unavailable before the call (it is known only during or after customer contact). Therefore, the model cannot be used reliably for pre-call prediction because duration is unavailable at the prediction moment. It serves as a reminder that:
 > **High offline validation performance $\ne$ valid real-world model.**
 
 ---
